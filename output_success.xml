@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.2 (Python 3.6.2 on darwin)" generated="20171012 07:47:27.337">
+<suite id="s1" name="Googling Stapy Ja Success" source="/Users/kamijoshinya/thinkami/try/start_python_club_29/googling_stapy_ja_success.robot">
+<test id="s1-t1" name="GoogleでみんなのPython勉強会を検索するテスト">
+<kw name="ChromeでGoogleを開く">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>https://google.co.jp</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20171012 07:47:27.464" level="INFO">Opening browser 'Chrome' to base url 'https://google.co.jp'</msg>
+<status status="PASS" starttime="20171012 07:47:27.464" endtime="20171012 07:47:34.813"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:27.463" endtime="20171012 07:47:34.813"></status>
+</kw>
+<kw name="みんなのPython勉強会を検索する">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>name=q</arg>
+<arg>みんなのPython勉強会</arg>
+</arguments>
+<msg timestamp="20171012 07:47:34.814" level="INFO">Typing text 'みんなのPython勉強会' into text field 'name=q'</msg>
+<status status="PASS" starttime="20171012 07:47:34.814" endtime="20171012 07:47:35.091"></status>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<doc>Simulates user pressing key on element identified by `locator`.</doc>
+<arguments>
+<arg>name=q</arg>
+<arg>\\13</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:35.091" endtime="20171012 07:47:35.917"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:34.813" endtime="20171012 07:47:35.918"></status>
+</kw>
+<kw name="結果を取得する">
+<assign>
+<var>${links}</var>
+</assign>
+<kw name="Get Webelements" library="SeleniumLibrary">
+<doc>Returns list of WebElement objects matching locator.</doc>
+<arguments>
+<arg>css=h3 &gt; a</arg>
+</arguments>
+<assign>
+<var>${links}</var>
+</assign>
+<msg timestamp="20171012 07:47:35.960" level="INFO">${links} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="1d75427e05e28fa5bb53f31087507025", element="0.6200322493567298-1")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="1d75427e05e2...</msg>
+<status status="PASS" starttime="20171012 07:47:35.919" endtime="20171012 07:47:35.960"></status>
+</kw>
+<kw name="Return From Keyword" library="BuiltIn">
+<doc>Returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${links}</arg>
+</arguments>
+<msg timestamp="20171012 07:47:35.961" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" starttime="20171012 07:47:35.961" endtime="20171012 07:47:35.961"></status>
+</kw>
+<msg timestamp="20171012 07:47:35.962" level="INFO">${links} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="1d75427e05e28fa5bb53f31087507025", element="0.6200322493567298-1")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="1d75427e05e2...</msg>
+<status status="PASS" starttime="20171012 07:47:35.918" endtime="20171012 07:47:35.962"></status>
+</kw>
+<kw name="結果「${links}」をターミナルに出力する">
+<kw name="${link} IN [ @{links} ]" type="for">
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-1&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.069" level="INFO">${text} = Start Python Club - connpass</msg>
+<status status="PASS" starttime="20171012 07:47:35.964" endtime="20171012 07:47:36.069"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.069" endtime="20171012 07:47:36.070"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:35.964" endtime="20171012 07:47:36.070"></status>
+</kw>
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-2&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.091" level="INFO">${text} = みんなのPython勉強会#27</msg>
+<status status="PASS" starttime="20171012 07:47:36.070" endtime="20171012 07:47:36.091"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.091" endtime="20171012 07:47:36.091"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.070" endtime="20171012 07:47:36.092"></status>
+</kw>
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-3&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.121" level="INFO">${text} = みんなのPython勉強会#28</msg>
+<status status="PASS" starttime="20171012 07:47:36.092" endtime="20171012 07:47:36.121"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.122" endtime="20171012 07:47:36.124"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.092" endtime="20171012 07:47:36.124"></status>
+</kw>
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-4&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.174" level="INFO">${text} = みんなのPython勉強会#29</msg>
+<status status="PASS" starttime="20171012 07:47:36.125" endtime="20171012 07:47:36.174"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.174" endtime="20171012 07:47:36.175"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.124" endtime="20171012 07:47:36.175"></status>
+</kw>
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-5&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.240" level="INFO">${text} = みんなのPython勉強会#24</msg>
+<status status="PASS" starttime="20171012 07:47:36.176" endtime="20171012 07:47:36.240"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.241" endtime="20171012 07:47:36.241"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.176" endtime="20171012 07:47:36.242"></status>
+</kw>
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-6&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.295" level="INFO">${text} = みんなのPython勉強会#26</msg>
+<status status="PASS" starttime="20171012 07:47:36.242" endtime="20171012 07:47:36.295"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.295" endtime="20171012 07:47:36.296"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.242" endtime="20171012 07:47:36.296"></status>
+</kw>
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-7&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.366" level="INFO">${text} = みんなのPython勉強会#25</msg>
+<status status="PASS" starttime="20171012 07:47:36.297" endtime="20171012 07:47:36.368"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.368" endtime="20171012 07:47:36.369"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.296" endtime="20171012 07:47:36.369"></status>
+</kw>
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-8&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.391" level="INFO">${text} = みんなのPython勉強会#25｜IT勉強会・セミナーなどのイベント情報検索 ...</msg>
+<status status="PASS" starttime="20171012 07:47:36.369" endtime="20171012 07:47:36.391"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.391" endtime="20171012 07:47:36.391"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.369" endtime="20171012 07:47:36.391"></status>
+</kw>
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-9&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.421" level="INFO">${text} = みんなのPython勉強会#30｜IT勉強会・セミナーなどのイベント情報検索 ...</msg>
+<status status="PASS" starttime="20171012 07:47:36.392" endtime="20171012 07:47:36.421"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.421" endtime="20171012 07:47:36.424"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.392" endtime="20171012 07:47:36.424"></status>
+</kw>
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-10&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.446" level="INFO">${text} = みんなのPython勉強会リモート中継 in GEEKLAB.NAGANO #20｜IT勉強 ...</msg>
+<status status="PASS" starttime="20171012 07:47:36.424" endtime="20171012 07:47:36.446"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.446" endtime="20171012 07:47:36.446"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.424" endtime="20171012 07:47:36.446"></status>
+</kw>
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-11&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.473" level="INFO">${text} = みんなのPython勉強会#29｜IT勉強会・セミナーなどのイベント情報検索 ...</msg>
+<status status="PASS" starttime="20171012 07:47:36.446" endtime="20171012 07:47:36.473"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.474" endtime="20171012 07:47:36.474"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.446" endtime="20171012 07:47:36.474"></status>
+</kw>
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-12&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.498" level="INFO">${text} = みんなのPython勉強会#23（リーディング・エッジ社主催） - Facebook</msg>
+<status status="PASS" starttime="20171012 07:47:36.474" endtime="20171012 07:47:36.498"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.498" endtime="20171012 07:47:36.499"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.474" endtime="20171012 07:47:36.499"></status>
+</kw>
+<kw name="${link} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;1d75427e05e28fa5bb53f31087507025&quot;, element=&quot;0.6200322493567298-13&quot;)&gt;" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by `locator`.</doc>
+<arguments>
+<arg>${link}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20171012 07:47:36.533" level="INFO">${text} = Pythonistaのコミュニケーションとは？〜みんなのPython勉強会#27で登壇 ...</msg>
+<status status="PASS" starttime="20171012 07:47:36.499" endtime="20171012 07:47:36.533"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<status status="PASS" starttime="20171012 07:47:36.535" endtime="20171012 07:47:36.535"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.499" endtime="20171012 07:47:36.535"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:35.963" endtime="20171012 07:47:36.535"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:35.963" endtime="20171012 07:47:36.536"></status>
+</kw>
+<kw name="結果「${links}」は13件であること">
+<kw name="Length Should Be" library="BuiltIn">
+<doc>Verifies that the length of the given item is correct.</doc>
+<arguments>
+<arg>${links}</arg>
+<arg>13</arg>
+</arguments>
+<msg timestamp="20171012 07:47:36.536" level="INFO">Length is 13</msg>
+<status status="PASS" starttime="20171012 07:47:36.536" endtime="20171012 07:47:36.536"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:36.536" endtime="20171012 07:47:36.537"></status>
+</kw>
+<status status="PASS" starttime="20171012 07:47:27.461" endtime="20171012 07:47:36.537" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20171012 07:47:27.340" endtime="20171012 07:47:36.539"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Googling Stapy Ja Success">Googling Stapy Ja Success</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
