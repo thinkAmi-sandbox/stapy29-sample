@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 
 
 class TestStartPythonClub(unittest.TestCase):
-    def test_GoogleでみんなのPytohn勉強会を検索する(self):
+    def test_GoogleでみんなのPython勉強会を検索する(self):
         browser = webdriver.Chrome()
         browser.get('https://google.co.jp')
         query_input = browser.find_element_by_name('q')
